@@ -1,0 +1,1046 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protección y Seguridad | Sistemas Operativos</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f1f5f9;
+            color: #263449;
+            line-height: 1.7;
+        }
+
+        /* ENCABEZADO */
+        header {
+            background: #101c35;
+            color: white;
+            padding: 22px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+            header h2 {
+                color: #38bdf8;
+            }
+
+        nav {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+            nav a {
+                color: white;
+                text-decoration: none;
+                font-size: 14px;
+                transition: 0.3s;
+            }
+
+                nav a:hover {
+                    color: #38bdf8;
+                }
+
+        /* PORTADA */
+        .portada {
+            background: linear-gradient(135deg, #101c35, #164e78);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+            .portada h1 {
+                font-size: 42px;
+                margin-bottom: 20px;
+            }
+
+            .portada p {
+                max-width: 750px;
+                margin: auto;
+                font-size: 18px;
+                color: #dbeafe;
+            }
+
+        .boton {
+            display: inline-block;
+            margin-top: 28px;
+            background: #0ea5e9;
+            color: white;
+            padding: 13px 25px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+            .boton:hover {
+                background: #0284c7;
+            }
+
+        /* CONTENIDO GENERAL */
+        .contenedor {
+            width: 88%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        section {
+            padding: 65px 0;
+            scroll-margin-top: 20px;
+        }
+
+        .titulo {
+            color: #12345a;
+            font-size: 30px;
+            margin-bottom: 22px;
+            border-left: 5px solid #0ea5e9;
+            padding-left: 15px;
+        }
+
+        .introduccion {
+            margin-bottom: 25px;
+            color: #526174;
+        }
+
+        /* TARJETAS */
+        .tarjetas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 22px;
+            margin-top: 25px;
+        }
+
+        .tarjeta {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+            border-top: 4px solid #0ea5e9;
+        }
+
+            .tarjeta h3 {
+                color: #075985;
+                margin-bottom: 12px;
+            }
+
+            .tarjeta p {
+                color: #526174;
+            }
+
+        .icono {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        /* CAJA DE INFORMACIÓN */
+        .informacion {
+            background: #dff3ff;
+            border-left: 5px solid #0284c7;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 25px;
+        }
+
+        /* TABLAS */
+        .tabla-contenedor {
+            overflow-x: auto;
+            margin-top: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            text-align: center;
+        }
+
+        th {
+            background: #12345a;
+            color: white;
+            padding: 15px;
+        }
+
+        td {
+            padding: 14px;
+            border: 1px solid #dbe3ed;
+        }
+
+        tr:nth-child(even) {
+            background: #edf5fc;
+        }
+
+        /* CIFRADO */
+        .herramienta {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+            margin-top: 25px;
+        }
+
+            .herramienta label {
+                display: block;
+                font-weight: bold;
+                margin: 15px 0 8px;
+            }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .botones {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 18px;
+        }
+
+        button {
+            background: #0284c7;
+            color: white;
+            border: none;
+            padding: 12px 22px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+            button:hover {
+                background: #075985;
+            }
+
+        .resultado {
+            margin-top: 20px;
+            padding: 18px;
+            background: #e0f2fe;
+            border-radius: 8px;
+            overflow-wrap: anywhere;
+        }
+
+        /* PIE DE PÁGINA */
+        footer {
+            background: #101c35;
+            color: white;
+            text-align: center;
+            padding: 30px 15px;
+            margin-top: 30px;
+        }
+
+            footer p {
+                color: #cbd5e1;
+            }
+
+        /* DISEÑO RESPONSIVO */
+        @media (max-width: 700px) {
+            header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .portada h1 {
+                font-size: 30px;
+            }
+
+            .titulo {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ENCABEZADO Y MENÚ -->
+    <header>
+        <h2>SEGURIDAD SO</h2>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#tema61">6.1</a>
+            <a href="#tema62">6.2</a>
+            <a href="#tema63">6.3</a>
+            <a href="#tema64">6.4</a>
+            <a href="#tema65">6.5</a>
+            <a href="#tema66">6.6</a>
+            <a href="#tema67">6.7</a>
+        </nav>
+    </header>
+
+    <!-- PORTADA -->
+    <div class="portada" id="inicio">
+        <h1>Protección y Seguridad en los Sistemas Operativos</h1>
+
+        <p>
+            Conoce los mecanismos, herramientas y técnicas que permiten
+            proteger los sistemas operativos, controlar el acceso a los
+            recursos y mantener segura la información.
+        </p>
+
+        <a href="#tema61" class="boton">Explorar los temas</a>
+    </div>
+
+    <!-- PRESENTACIÓN -->
+    <section>
+        <div class="contenedor">
+            <h2 class="titulo">Introducción</h2>
+
+            <p class="introduccion">
+                La protección y seguridad son elementos fundamentales
+                de los sistemas operativos. Su función principal es
+                evitar accesos no autorizados, proteger los datos y
+                garantizar que los recursos de una computadora sean
+                utilizados correctamente.
+            </p>
+
+            <div class="tarjetas">
+
+                <div class="tarjeta">
+                    <div class="icono">🔐</div>
+                    <h3>Protección</h3>
+                    <p>
+                        Controla cómo los usuarios y programas pueden
+                        utilizar los recursos del sistema.
+                    </p>
+                </div>
+
+                <div class="tarjeta">
+                    <div class="icono">🛡️</div>
+                    <h3>Seguridad</h3>
+                    <p>
+                        Busca evitar amenazas, ataques y situaciones
+                        que puedan comprometer la información.
+                    </p>
+                </div>
+
+                <div class="tarjeta">
+                    <div class="icono">💻</div>
+                    <h3>Sistemas operativos</h3>
+                    <p>
+                        Administran el hardware, los programas,
+                        los usuarios y los recursos de la computadora.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TEMA 6.1 -->
+    <section id="tema61">
+        <div class="contenedor">
+
+            <h2 class="titulo">
+                6.1. Concepto y objetivos de protección y seguridad
+            </h2>
+
+            <p class="introduccion">
+                La protección y seguridad en un sistema operativo
+                consiste en establecer mecanismos que permitan
+                controlar el acceso a los recursos y defender la
+                información contra posibles amenazas.
+            </p>
+
+            <div class="tarjetas">
+
+                <div class="tarjeta">
+                    <h3>Confidencialidad</h3>
+                    <p>
+                        Garantiza que la información solamente pueda
+                        ser consultada por personas autorizadas.
+                    </p>
+                </div>
+
+                <div class="tarjeta">
+                    <h3>Integridad</h3>
+                    <p>
+                        Evita que los datos sean modificados,
+                        eliminados o alterados sin autorización.
+                    </p>
+                </div>
+
+                <div class="tarjeta">
+                    <h3>Disponibilidad</h3>
+                    <p>
+                        Permite que los usuarios autorizados puedan
+                        acceder a los recursos cuando los necesiten.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="informacion">
+                <strong>Objetivo principal:</strong>
+                mantener los recursos del sistema protegidos,
+                garantizar el funcionamiento correcto y evitar
+                que personas no autorizadas puedan acceder
+                a la información.
+            </div>
+
+        </div>
+    </section>
+
+    <!-- TEMA 6.2 -->
+    <section id="tema62">
+        <div class="contenedor">
+
+            <h2 class="titulo">
+                6.2. Clasificación aplicada a la seguridad
+            </h2>
+
+            <p class="introduccion">
+                La seguridad informática puede clasificarse de
+                diferentes maneras, dependiendo del tipo de protección
+                que se necesita y del momento en que se aplica.
+            </p>
+
+            <div class="tarjetas">
+
+                <div class="tarjeta">
+                    <div class="icono">🏢</div>
+                    <h3>Seguridad física</h3>
+                    <p>
+                        Protege los equipos e instalaciones contra
+                        robos, incendios, daños y accesos físicos
+                        no autorizados.
+                    </p>
+                </div>
+
+                <div class="tarjeta">
+                    <div class="icono">🔒</div>
+                    <h3>Seguridad lógica</h3>
+                    <p>
+                        Protege los programas, archivos, cuentas
+                        de usuario y datos mediante contraseñas,
+                        permisos y controles de acceso.
+                    </p>
+                </div>
+
+                <div class="tarjeta">
+                    <div class="icono">📋</div>
+                    <h3>Seguridad administrativa</h3>
+                    <p>
+                        Establece políticas, procedimientos y reglas
+                        para administrar correctamente la seguridad.
+                    </p>
+                </div>
+
+                <div class="tarjeta">
+                    <div class="icono">🛡️</div>
+                    <h3>Seguridad preventiva</h3>
+                    <p>
+                        Busca evitar incidentes mediante actualizaciones,
+                        controles de acceso y medidas de protección.
+                    </p>
+                </div>
+
+                <div class="tarjeta">
+                    <div class="icono">🔎</div>
+                    <h3>Seguridad detectiva</h3>
+                    <p>
+                        Identifica actividades sospechosas mediante
+                        registros, monitoreo y sistemas de detección.
+                    </p>
+                </div>
+
+                <div class="tarjeta">
+                    <div class="icono">🔧</div>
+                    <h3>Seguridad correctiva</h3>
+                    <p>
+                        Permite corregir fallas y recuperar el sistema
+                        después de un incidente de seguridad.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TEMA 6.3 -->
+    <section id="tema63">
+        <div class="contenedor">
+
+            <h2 class="titulo">
+                6.3. Funciones del sistema de protección
+            </h2>
+
+            <p class="introduccion">
+                El sistema de protección de un sistema operativo
+                administra los permisos y establece reglas para
+                garantizar que cada usuario o proceso utilice
+                únicamente los recursos que tiene autorizados.
+            </p>
+
+            <div class="tarjetas">
+
+                <div class="tarjeta">
+                    <h3>Autenticación</h3>
+                    <p>
+                        Comprueba la identidad del usuario mediante
+                        contraseñas, huellas digitales u otros métodos.
+                    </p>
+                </div>
+
+                <div class="tarjeta">
+                    <h3>Autorización</h3>
+                    <p>
+                        Determina qué acciones puede realizar cada
+                        usuario dentro del sistema.
+                    </p>
+                </div>
+
+                <div class="tarjeta">
+                    <h3>Control de acceso</h3>
+                    <p>
+                        Restringe el acceso a archivos, carpetas,
+                        dispositivos y aplicaciones.
+                    </p>
+                </div>
+
+                <div class="tarjeta">
+                    <h3>Auditoría</h3>
+                    <p>
+                        Registra las actividades realizadas para
+                        identificar posibles problemas de seguridad.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="informacion">
+                <strong>Ejemplo:</strong>
+                En Windows, un administrador puede permitir que
+                determinados usuarios modifiquen un archivo,
+                mientras que otros solamente pueden leerlo.
+            </div>
+
+        </div>
+    </section>
+
+    <!-- TEMA 6.4 -->
+    <section id="tema64">
+        <div class="contenedor">
+
+            <h2 class="titulo">
+                6.4. Implantación de matrices de acceso
+            </h2>
+
+            <p class="introduccion">
+                Una matriz de acceso es un modelo que representa
+                los permisos que tienen los usuarios o procesos
+                sobre diferentes objetos del sistema.
+            </p>
+
+            <h3>Ejemplo de una matriz de acceso</h3>
+
+            <div class="tabla-contenedor">
+                <table>
+                    <tr>
+                        <th>Usuario</th>
+                        <th>Archivo 1</th>
+                        <th>Archivo 2</th>
+                        <th>Impresora</th>
+                    </tr>
+
+                    <tr>
+                        <td>Administrador</td>
+                        <td>Leer / Escribir</td>
+                        <td>Leer / Escribir</td>
+                        <td>Usar</td>
+                    </tr>
+
+                    <tr>
+                        <td>Profesor</td>
+                        <td>Leer / Escribir</td>
+                        <td>Leer</td>
+                        <td>Usar</td>
+                    </tr>
+
+                    <tr>
+                        <td>Estudiante</td>
+                        <td>Leer</td>
+                        <td>Sin acceso</td>
+                        <td>Sin acceso</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="tarjetas">
+
+                <div class="tarjeta">
+                    <h3>Lectura</h3>
+                    <p>
+                        Permite consultar el contenido de un archivo
+                        sin modificarlo.
+                    </p>
+                </div>
+
+                <div class="tarjeta">
+                    <h3>Escritura</h3>
+                    <p>
+                        Permite modificar o guardar información
+                        en un archivo.
+                    </p>
+                </div>
+
+                <div class="tarjeta">
+                    <h3>Ejecución</h3>
+                    <p>
+                        Permite ejecutar un programa o aplicación.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="informacion">
+                <strong>Importancia:</strong>
+                las matrices de acceso ayudan a organizar los
+                permisos y evitan que los usuarios realicen
+                operaciones para las que no tienen autorización.
+            </div>
+
+        </div>
+    </section>
+
+    <!-- TEMA 6.5 -->
+    <section id="tema65">
+        <div class="contenedor">
+
+            <h2 class="titulo">
+                6.5. Protección basada en el lenguaje
+            </h2>
+
+            <p class="introduccion">
+                La protección basada en el lenguaje utiliza
+                características de los lenguajes de programación
+                para controlar el acceso a los datos y prevenir
+                operaciones no permitidas.
+            </p>
+
+            <div class="tarjetas">
+
+                <div class="tarjeta">
+                    <h3>Encapsulamiento</h3>
+                    <p>
+                        Protege los atributos de una clase
+                        y permite acceder a ellos mediante
+                        métodos controlados.
+                    </p>
+                </div>
+
+                <div class="tarjeta">
+                    <h3>Control de tipos</h3>
+                    <p>
+                        Evita operaciones incorrectas entre
+                        diferentes tipos de datos.
+                    </p>
+                </div>
+
+                <div class="tarjeta">
+                    <h3>Modificadores de acceso</h3>
+                    <p>
+                        Permiten establecer quién puede utilizar
+                        una clase, método o atributo.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="informacion">
+                <strong>Ejemplo en C#:</strong>
+
+                <pre style="margin-top:15px; overflow-x:auto;">
+public class Cuenta
+{
+    private double saldo;
+
+    public void Depositar(double cantidad)
+    {
+        if (cantidad > 0)
+        {
+            saldo += cantidad;
+        }
+    }
+
+    public double ConsultarSaldo()
+    {
+        return saldo;
+    }
+}
+                </pre>
+
+                El atributo saldo es privado, por lo que no
+                puede modificarse directamente desde fuera
+                de la clase. Se utilizan métodos para controlar
+                su acceso.
+            </div>
+
+        </div>
+    </section>
+
+    <!-- TEMA 6.6 -->
+    <section id="tema66">
+        <div class="contenedor">
+
+            <h2 class="titulo">
+                6.6. Validación y amenazas al sistema
+            </h2>
+
+            <p class="introduccion">
+                La validación consiste en comprobar que los usuarios,
+                programas y operaciones cumplen con las reglas
+                establecidas por el sistema operativo.
+            </p>
+
+            <div class="tarjetas">
+
+                <div class="tarjeta">
+                    <div class="icono">👤</div>
+                    <h3>Validación de usuarios</h3>
+                    <p>
+                        Comprueba que la persona que intenta ingresar
+                        tenga una identidad autorizada.
+                    </p>
+                </div>
+
+                <div class="tarjeta">
+                    <div class="icono">📁</div>
+                    <h3>Validación de permisos</h3>
+                    <p>
+                        Verifica si un usuario tiene autorización
+                        para acceder a un recurso.
+                    </p>
+                </div>
+
+                <div class="tarjeta">
+                    <div class="icono">⚙️</div>
+                    <h3>Validación de procesos</h3>
+                    <p>
+                        Comprueba que los programas realicen
+                        operaciones permitidas.
+                    </p>
+                </div>
+
+            </div>
+
+            <h3 style="margin-top:35px;">
+                Principales amenazas al sistema
+            </h3>
+
+            <div class="tarjetas">
+
+                <div class="tarjeta">
+                    <h3>Virus informáticos</h3>
+                    <p>
+                        Programas maliciosos que pueden infectar
+                        archivos y afectar el funcionamiento
+                        del equipo.
+                    </p>
+                </div>
+
+                <div class="tarjeta">
+                    <h3>Troyanos</h3>
+                    <p>
+                        Programas que aparentan ser legítimos,
+                        pero realizan actividades maliciosas.
+                    </p>
+                </div>
+
+                <div class="tarjeta">
+                    <h3>Phishing</h3>
+                    <p>
+                        Técnica que busca engañar a los usuarios
+                        para obtener contraseñas o información
+                        confidencial.
+                    </p>
+                </div>
+
+                <div class="tarjeta">
+                    <h3>Ransomware</h3>
+                    <p>
+                        Malware que bloquea o cifra archivos
+                        para exigir un pago por su recuperación.
+                    </p>
+                </div>
+
+                <div class="tarjeta">
+                    <h3>Acceso no autorizado</h3>
+                    <p>
+                        Ocurre cuando una persona ingresa
+                        a un sistema sin tener los permisos
+                        correspondientes.
+                    </p>
+                </div>
+
+                <div class="tarjeta">
+                    <h3>Denegación de servicio</h3>
+                    <p>
+                        Ataque que busca interrumpir la
+                        disponibilidad de un servicio o sistema.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- TEMA 6.7 -->
+    <section id="tema67">
+        <div class="contenedor">
+
+            <h2 class="titulo">
+                6.7. Cifrado
+            </h2>
+
+            <p class="introduccion">
+                El cifrado es un procedimiento que transforma
+                información legible en un formato que no puede
+                comprenderse fácilmente sin la clave adecuada.
+                Su objetivo es proteger la confidencialidad
+                de los datos.
+            </p>
+
+            <div class="tarjetas">
+
+                <div class="tarjeta">
+                    <h3>Cifrado simétrico</h3>
+                    <p>
+                        Utiliza la misma clave para cifrar y
+                        descifrar la información.
+                    </p>
+                    <p>
+                        <strong>Ejemplo:</strong> AES.
+                    </p>
+                </div>
+
+                <div class="tarjeta">
+                    <h3>Cifrado asimétrico</h3>
+                    <p>
+                        Utiliza dos claves relacionadas:
+                        una pública y otra privada.
+                    </p>
+                    <p>
+                        <strong>Ejemplo:</strong> RSA.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="informacion">
+                <strong>¿Por qué es importante?</strong>
+                El cifrado protege contraseñas, documentos,
+                comunicaciones y datos personales frente
+                a personas que no tienen autorización.
+            </div>
+
+            <!-- HERRAMIENTA INTERACTIVA -->
+            <div class="herramienta">
+
+                <h3>🔐 Simulador de cifrado César</h3>
+
+                <p>
+                    Escribe un mensaje y selecciona una opción
+                    para observar cómo funciona el cifrado
+                    y descifrado de información.
+                </p>
+
+                <label for="mensaje">Mensaje:</label>
+
+                <textarea id="mensaje"
+                          placeholder="Escribe tu mensaje aquí..."></textarea>
+
+                <label for="desplazamiento">
+                    Desplazamiento:
+                </label>
+
+                <input type="number"
+                       id="desplazamiento"
+                       value="3"
+                       min="0"
+                       max="25"
+                       step="1">
+
+                <div class="botones">
+                    <button type="button" onclick="cifrar()">
+                        Cifrar mensaje
+                    </button>
+
+                    <button type="button" onclick="descifrar()">
+                        Descifrar mensaje
+                    </button>
+                </div>
+
+                <div class="resultado">
+                    <strong>Resultado:</strong>
+                    <p id="resultado">
+                        Aquí aparecerá el mensaje procesado.
+                    </p>
+                </div>
+
+                <p style="margin-top:15px; color:#64748b;">
+                    Nota: el cifrado César es un ejemplo educativo
+                    y no debe utilizarse para proteger información real.
+                </p>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONCLUSIÓN -->
+    <section>
+        <div class="contenedor">
+
+            <h2 class="titulo">Conclusión</h2>
+
+            <p class="introduccion">
+                La protección y seguridad en los sistemas operativos
+                son indispensables para mantener la información
+                segura y garantizar el correcto funcionamiento
+                de los equipos. Mediante mecanismos como el control
+                de acceso, la autenticación, la validación y el
+                cifrado, es posible reducir los riesgos y proteger
+                los recursos informáticos.
+            </p>
+
+            <div class="informacion">
+                La seguridad no depende de una sola herramienta,
+                sino de la combinación de diferentes mecanismos,
+                políticas y buenas prácticas.
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <h3>Protección y Seguridad en los Sistemas Operativos</h3>
+        <p>Proyecto académico - Ingeniería en Sistemas Computacionales</p>
+        <p>Materia: Sistemas Operativos</p>
+        <p style="margin-top:12px;">
+            © 2026 - Proyecto educativo
+        </p>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        "use strict";
+
+        // Función para cifrar el mensaje.
+        function cifrar() {
+            procesarMensaje(1);
+        }
+
+        // Función para descifrar el mensaje.
+        function descifrar() {
+            procesarMensaje(-1);
+        }
+
+        // Algoritmo César.
+        function procesarMensaje(direccion) {
+
+            const campoMensaje =
+                document.getElementById("mensaje");
+
+            const campoDesplazamiento =
+                document.getElementById("desplazamiento");
+
+            const resultado =
+                document.getElementById("resultado");
+
+            const mensaje = campoMensaje.value;
+
+            const valorDesplazamiento =
+                campoDesplazamiento.value.trim();
+
+            const desplazamiento =
+                Number(valorDesplazamiento);
+
+            // Validar que el usuario haya escrito un mensaje.
+            if (mensaje.trim() === "") {
+                resultado.textContent =
+                    "Por favor, escribe un mensaje.";
+
+                campoMensaje.focus();
+                return;
+            }
+
+            // Validar que el desplazamiento sea correcto.
+            if (
+                valorDesplazamiento === "" ||
+                !Number.isInteger(desplazamiento) ||
+                desplazamiento < 0 ||
+                desplazamiento > 25
+            ) {
+                resultado.textContent =
+                    "El desplazamiento debe ser un número entero entre 0 y 25.";
+
+                campoDesplazamiento.focus();
+                return;
+            }
+
+            let textoProcesado = "";
+
+            // Procesar cada carácter del mensaje.
+            for (let i = 0; i < mensaje.length; i++) {
+
+                const caracter = mensaje[i];
+                const codigo = caracter.charCodeAt(0);
+
+                let base;
+
+                // Letras mayúsculas (A-Z).
+                if (codigo >= 65 && codigo <= 90) {
+                    base = 65;
+                }
+
+                // Letras minúsculas (a-z).
+                else if (codigo >= 97 && codigo <= 122) {
+                    base = 97;
+                }
+
+                // Conservar espacios, números, signos y acentos.
+                else {
+                    textoProcesado += caracter;
+                    continue;
+                }
+
+                const nuevoCodigo =
+                    ((codigo - base +
+                    direccion * desplazamiento + 26) % 26) + base;
+
+                textoProcesado +=
+                    String.fromCharCode(nuevoCodigo);
+            }
+
+            // Mostrar el resultado.
+            resultado.textContent = textoProcesado;
+        }
+    </script>
+
+</body>
+</html>
